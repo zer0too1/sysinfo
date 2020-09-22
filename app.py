@@ -14,7 +14,7 @@ def do_info():
 
 def application(env, start_response):
   start_response('200 OK', [('Content-Type','text/html')])
-  return [do_info()]
+  return [do_info().encode()]
 
 if __name__ == "__main__":
   if 'REQUEST_URI' in os.environ:
