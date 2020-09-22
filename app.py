@@ -12,6 +12,10 @@ def do_info():
   Processor = platform.processor()
   return "Sysinfo:<br>"+Machine+"<br>"+Version+"<br>"+Platform+"<br>"+System+"<br>"+Processor
 
+def application(env, start_response):
+  start_response('200 OK', [('Content-Type','text/html')])
+  return [do_info()]
+
 if __name__ == "__main__":
   if 'REQUEST_URI' in os.environ:
     print ("Content-type: text/html\n\n")
